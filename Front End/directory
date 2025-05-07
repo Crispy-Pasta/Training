@@ -1,0 +1,12 @@
+project/
+│
+├── frontend/
+│   ├── Dockerfile
+│   └── (React App Files)
+│
+├── backend/
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── main.py
+│
+├── docker-compose.yml
