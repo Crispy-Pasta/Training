@@ -30,7 +30,7 @@ def ping_db():
 class DisplayTextRequest(BaseModel):
     text: str
 
-@app.post("/api/display")
+@app.post("/api/output")
 def display_text(request: DisplayTextRequest):
     print(f"Received text: {request.text}")
     return {"message": request.text}
