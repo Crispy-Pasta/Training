@@ -1,6 +1,8 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 import mysql.connector
 import os
+
 ##### TEST 12345
 app = FastAPI()
 
@@ -23,3 +25,12 @@ def ping_db():
         return {"status": "connected"}
     except mysql.connector.Error as e:
         return {"status": "error", "details": str(e)}
+
+# Define request body model for POST /api/display
+class DisplayTextRequest(BaseModel):
+    text: str
+
+@app.post("/api/display")
+def display_text(request: DisplayTextRequest):
+    print(f"Received text: {request.text}")
+    return {"message": request.text}
